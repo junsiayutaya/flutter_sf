@@ -72,23 +72,46 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            body: Container(
-              width: 200,
-              height: 100,
-              decoration: BoxDecoration(
-                color : Colors.yellow,
-                shape: BoxShape.rectangle,
-                image: const DecorationImage(
-                  image: NetworkImage('https://gratisography.com/wp-content/uploads/2024/10/gratisography-happy-cone-800x525.jpg'),
-                  fit: BoxFit.cover,
-                ),
-                border: Border.all(
-                  width: 8,
-                ),),
-              margin: EdgeInsets.only(left: 30),
-              padding:EdgeInsets.only(left: 30),
-
-                child: Text("junsi",
-                    style: TextStyle(fontSize: 50, color: Colors.deepPurpleAccent )))));
+            body: Column(
+      children: [
+        Row(
+          children: [
+            SizedBox(width: 8, height: 3, ),
+            Image.asset('assets/images/user_profile.png'),
+            SizedBox(width: 8 ),
+            const Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Hey junsi', style: TextStyle(fontSize: 14)),
+                Text('Ready to order?',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700))
+              ],
+            )
+          ],
+        ),
+      ],
+    )));
   }
 }
+
+//Container(
+//                 width: 200,
+//                 height: 100,
+//                 decoration: BoxDecoration(
+//                   color: Colors.yellow,
+//                   shape: BoxShape.rectangle,
+//                   image: const DecorationImage(
+//                     image: NetworkImage(
+//                         'https://gratisography.com/wp-content/uploads/2024/10/gratisography-happy-cone-800x525.jpg'),
+//                     fit: BoxFit.cover,
+//                   ),
+//                   border: Border.all(
+//                     width: 8,
+//                   ),
+//                 ),
+//                 margin: EdgeInsets.only(left: 30),
+//                 padding: EdgeInsets.only(left: 30),
+//                 child: Text("junsi",
+//                     style: TextStyle(
+//                         fontSize: 50, color: Colors.deepPurpleAccent)))));
