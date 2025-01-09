@@ -1,4 +1,7 @@
+import 'package:basic_flutter/profilewidget.dart';
 import 'package:flutter/material.dart';
+
+import 'data/catagorydata.dart';
 
 void main() {
   runApp(const MyApp());
@@ -72,29 +75,83 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            body: Column(
-      children: [
-        Row(
-          children: [
-            SizedBox(width: 8, height: 3, ),
-            Image.asset('assets/images/user_profile.png'),
-            SizedBox(width: 8 ),
-            const Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Hey junsi', style: TextStyle(fontSize: 14)),
-                Text('Ready to order?',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700))
-              ],
-            )
-          ],
-        ),
-      ],
-    )));
+            body:
+            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              profile(),
+              SizedBox(
+                height: 16,
+              ),
+              Text(
+                "select by catagory",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                  height: 200,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: categories.length,
+                    itemBuilder: (context, index) {
+                      // final category = categories[index];
+                      return catagorywedget(
+                        image: categories[index]['image']!,
+                        title: categories[index]['title']!,
+                      );
+                      // Text(categories[index]['title']!);
+                    },
+                  ))
+            ])));
   }
 }
 
+class catagorywedget extends StatelessWidget {
+  const catagorywedget({
+    required this.image,
+    required this.title,
+    super.key,
+  });
+
+  final String image;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(6),
+            color: const Color.fromRGBO(246, 245, 243, 1)),
+        width: 100,
+        height: 100,
+        padding: const EdgeInsets.all(8),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset(
+              image,
+              width: 48,
+              height: 48,
+            ),
+            const SizedBox(height: 4),
+            Text(
+              title,
+              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+Widget build(BuildContext contect) {
+  return SafeArea(child: Scaffold(body: Column(
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+
+    ],),))
+}
 //Container(
 //                 width: 200,
 //                 height: 100,
@@ -102,7 +159,6 @@ class _MyHomePageState extends State<MyHomePage> {
 //                   color: Colors.yellow,
 //                   shape: BoxShape.rectangle,
 //                   image: const DecorationImage(
-//                     image: NetworkImage(
 //                         'https://gratisography.com/wp-content/uploads/2024/10/gratisography-happy-cone-800x525.jpg'),
 //                     fit: BoxFit.cover,
 //                   ),
