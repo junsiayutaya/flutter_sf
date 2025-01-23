@@ -1,3 +1,4 @@
+import 'package:basic_flutter/detail.dart';
 import 'package:basic_flutter/profilewidget.dart';
 import 'package:flutter/material.dart';
 
@@ -76,30 +77,37 @@ class _MyHomePageState extends State<MyHomePage> {
     return SafeArea(
         child: Scaffold(
             body:
-            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              profile(),
-              SizedBox(
-                height: 16,
-              ),
-              Text(
-                "select by catagory",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                  height: 200,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: categories.length,
-                    itemBuilder: (context, index) {
-                      // final category = categories[index];
-                      return catagorywedget(
-                        image: categories[index]['image']!,
-                        title: categories[index]['title']!,
-                      );
-                      // Text(categories[index]['title']!);
-                    },
-                  ))
-            ])));
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      profile(),
+      SizedBox(
+        height: 16,
+      ),
+      Text(
+        "select by catagory",
+        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+      ),
+      SizedBox(
+          height: 200,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: categories.length,
+            itemBuilder: (context, index) {
+              // final category = categories[index];
+              return catagorywedget(
+                image: categories[index]['image']!,
+                title: categories[index]['title']!,
+              );
+              // Text(categories[index]['title']!);
+            },
+          )),
+      ElevatedButton(
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Details()));
+        },
+        child: Text('press me'),
+      )
+    ])));
   }
 }
 
@@ -145,12 +153,15 @@ class catagorywedget extends StatelessWidget {
 }
 
 Widget build(BuildContext contect) {
-  return SafeArea(child: Scaffold(body: Column(
-    mainAxisAlignment: MainAxisAlignment.start,
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-
-    ],),))
+  return SafeArea(
+    child: Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [],
+      ),
+    ),
+  );
 }
 //Container(
 //                 width: 200,
