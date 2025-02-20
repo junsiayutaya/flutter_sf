@@ -1,13 +1,34 @@
 import 'package:flutter/cupertino.dart';
 
-class profile extends StatelessWidget {
-  const profile({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
+  Container pfp2() {
+    return Container(
+        child: Column(
+          children: [
+            SizedBox(
+              width: 8,
+              height: 3,
+            ),
+            Image.asset('assets/images/user_profile.png'),
+            SizedBox(width: 8),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Search for songs / artists ', style: TextStyle(fontSize: 30)),
+                Text('Ready to order?',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700))
+              ],
+            )
+          ],
+        )
+    );
+  }
+
+
+Container pfp() {
+  return Container(
+    child: Column(
       children: [
         SizedBox(
           width: 8,
@@ -25,6 +46,6 @@ class profile extends StatelessWidget {
           ],
         )
       ],
-    );
-  }
+    )
+  );
 }

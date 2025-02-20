@@ -1,5 +1,6 @@
 import 'package:basic_flutter/detail.dart';
 import 'package:basic_flutter/profilewidget.dart';
+import 'package:basic_flutter/search_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'data/catagorydata.dart';
@@ -78,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Scaffold(
             body:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      profile(),
+      pfp(),
       SizedBox(
         height: 16,
       ),
@@ -104,6 +105,13 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: () {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => Details()));
+        },
+        child: Text('press me'),
+      ),
+      ElevatedButton(
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => rawr()));
         },
         child: Text('press me'),
       )
@@ -144,6 +152,10 @@ class catagorywedget extends StatelessWidget {
             Text(
               title,
               style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              "Nutrition facts",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
             ),
           ],
         ),
